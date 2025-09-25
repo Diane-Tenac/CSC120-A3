@@ -1,19 +1,47 @@
 
+import java.util.Scanner;
 class Conversation implements ConversationRequirements {
 
   // Attributes 
+  /** Diane's Codes */
+  private String userInput;
+  private String response;
+  private String[] Transcript;
 
   /**
    * Constructor 
    */
-  Conversation() {
+  public Conversation(String UserInput, String Response) {
+    this.userInput = UserInput;
+    this.response = Response;
     
   }
-
+  /** Manupulator and accessor */
+  public String getUserInput() {
+    return this.userInput;
+  }
+  public void setResponse(String answer) {
+    this.response = answer;
+  }
   /**
    * Starts and runs the conversation with the user
    */
   public void chat() {
+    System.out.println("Hey, would love to chat with you! Enter the chat rounds");
+    Scanner scanner =new Scanner(System.in);
+    int round = scanner.nextLine();
+    for (int a =0; a<round; a++) {
+      System.out.println("Hi there!  What's on your mind? ");
+      String userInput = scanner.nextLine();
+      //mirror the sentence
+      if userInput contains ("I"|| "you"||" me"||"my"||"am"||"your")
+      {
+        /** need to know how to concatinate this pronuns with users inputs and make a meaningful conversation */
+      }
+      else 
+        //canned response
+      System.out.println("ChatJad: " + respond(userInput));
+    }
 
   }
 
