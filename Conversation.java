@@ -7,13 +7,40 @@ class Conversation implements ConversationRequirements {
   private String userInput;
   private String response;
   private String[] Transcript;
+  private String [] MirrorWords;
+  private static  String[] cannedResponses = {
+      "Interesting, tell me more.",
+      "Hmmm.",
+      "Do you really think so?",
+      "Tell me more.",
+      " What would you say about that?",
+      " That sounds interesting. Go on.",
+      "Would you love to elaborate more on that?",
+      "Oh, I see.",
+      "Could you explain that?",
+      "That's quite fascinating."
+  };
+  /** Mirror set */
+  private static String[][] mirrorSet = {
+      {"I", "you"},
+      {"me", "you"},
+      {"my", "your"},
+      {"am", "are"},
+      {"you", "I"},
+      {"your", "my"},
+      {"yours", "mine"},
+      {"are", "am"}
+  };
 
   /**
    * Constructor 
    */
-  public Conversation(String UserInput, String Response) {
+  public Conversation(String UserInput, String Response, String[] Transcript, String[] MirrorWords) {
     this.userInput = UserInput;
     this.response = Response;
+    this.Transcript = Transcript;
+    this.MirrorWords = MirrorWords;
+    
     
   }
   /** Manupulator and accessor */
@@ -29,14 +56,14 @@ class Conversation implements ConversationRequirements {
   public void chat() {
     System.out.println("Hey, would love to chat with you! Enter the chat rounds");
     Scanner scanner =new Scanner(System.in);
-    int round = scanner.nextLine();
+    int round = scanner.nextInt();
     for (int a =0; a<round; a++) {
       System.out.println("Hi there!  What's on your mind? ");
       String userInput = scanner.nextLine();
-      //mirror the sentence
-      if userInput contains ("I"|| "you"||" me"||"my"||"am"||"your")
-      {
+      /** mirror the sentence */
+      if (userInput.contains("I"|| "you"||" me"||"my"||"am"||"your")){
         /** need to know how to concatinate this pronuns with users inputs and make a meaningful conversation */
+        
       }
       else 
         //canned response
